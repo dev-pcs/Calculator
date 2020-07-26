@@ -23,8 +23,9 @@ class ViewController: UIViewController {
         set {
             displayLabel.text = String(newValue)
         }
-    }    
+    }
     
+    private let calculator = CalculatorLogic()
     
     @IBAction func calcButtonPressed(_ sender: UIButton) {
         
@@ -32,7 +33,8 @@ class ViewController: UIViewController {
         
         if let calcMethod = sender.currentTitle {
             
-            let calculator = CalculatorLogic(number: displayValue)
+            
+            
             displayValue = calculator.calculate(symbol: calcMethod)
         }
     }

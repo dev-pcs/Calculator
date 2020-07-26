@@ -10,23 +10,22 @@ import UIKit
 
 struct CalculatorLogic {
     
-    var number: Double
+    private var number: Double?
     
-    init(number: Double) {
-        self.number = number
-    }
-    
-    func calculate(symbol: String) -> Double {
+    func calculate(symbol: String) -> Double? {
         
+        if let n = number {
             switch symbol {
             case "+/-":
-                return number * -1
+                return n * -1
             case "AC":
                 return 0
             case "%":
-                return number / 100
+                return n / 100
             default:
                 return 0
             }
         }
+        return nil
+    }
 }
