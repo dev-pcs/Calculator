@@ -23,8 +23,7 @@ class ViewController: UIViewController {
         set {
             displayLabel.text = String(newValue)
         }
-    }
-    
+    }    
     
     
     @IBAction func calcButtonPressed(_ sender: UIButton) {
@@ -32,16 +31,9 @@ class ViewController: UIViewController {
         isFinishedTypingNumber = true
         
         if let calcMethod = sender.currentTitle {
-            switch calcMethod {
-            case "+/-":
-                displayValue *= -1
-            case "AC":
-                displayLabel.text = "0"
-            case "%":
-                displayValue /= 100
-            default:
-                displayLabel.text = "0"
-            }
+            
+            let calculator = CalculatorLogic(number: displayValue)
+            displayValue = calculator.calculate(symbol: calcMethod)
         }
     }
     
