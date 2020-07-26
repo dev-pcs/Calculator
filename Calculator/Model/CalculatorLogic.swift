@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CalculatorLogic {
+struct CalculatorLogic {
     
     var number: Double
     
